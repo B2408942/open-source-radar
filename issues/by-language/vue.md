@@ -4,7 +4,7 @@
 
 [RSS feed](https://tanbirramim.github.io/open-source-radar/feeds/vue.xml)
 
-> Updated automatically on **2026-10-26 22:29 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
+> Updated automatically on **2026-10-27 22:06 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
 >
 > Prefer filters and search? Use the [website](https://tanbirramim.github.io/open-source-radar/). New here? Start with the [guide](../../guide/README.md).
 
@@ -14,7 +14,7 @@
 | --- | --- | ---: | --- | --- | --- |
 | [Feature Request: User Account Management – Disable, Delete and Revoke Sessions](https://github.com/Smaug6739/Alexandrie/issues/793) | [Smaug6739/Alexandrie](https://github.com/Smaug6739/Alexandrie) | 3.3k | 🟢 beginner | 2026-10-25 | [📘 guide](https://github.com/Smaug6739/Alexandrie/blob/HEAD/CONTRIBUTING.md) |
 | [\[功能建议\]NixOS适配](https://github.com/stark81/VutronMusic/issues/421) 💬 5 | [stark81/VutronMusic](https://github.com/stark81/VutronMusic) | 1.6k | 🟡 help wanted | 2026-10-25 |  |
-| [Linux 点「安装根证书」100% 失败：传给 '@vscode/sudo-prompt' 的 'name' 含连字符不通过校验；附带：'trust' 命令存在导致非 Arch 系误入 Arch 分支](https://github.com/docmirror/dev-sidecar/issues/740) 💬 1 | [docmirror/dev-sidecar](https://github.com/docmirror/dev-sidecar) | 24.7k | 🟢 beginner | 2026-10-23 | 🤖 disclose AI use |
+| [Linux 点「安装根证书」100% 失败：传给 '@vscode/sudo-prompt' 的 'name' 含连字符不通过校验；附带：'trust' 命令存在导致非 Arch 系误入 Arch 分支](https://github.com/docmirror/dev-sidecar/issues/740) 💬 1 | [docmirror/dev-sidecar](https://github.com/docmirror/dev-sidecar) | 24.8k | 🟢 beginner | 2026-10-23 | 🤖 disclose AI use |
 | [\[Enhancement\] Android TV Support](https://github.com/advplyr/audiobookshelf-app/issues/606) 💬 31 | [advplyr/audiobookshelf-app](https://github.com/advplyr/audiobookshelf-app) | 2.8k | 🟡 help wanted | 2026-10-23 |  |
 | [Regarding language settings](https://github.com/VueTorrent/VueTorrent/issues/1403) 💬 5 | [VueTorrent/VueTorrent](https://github.com/VueTorrent/VueTorrent) | 7k | 🟢 beginner | 2026-10-22 | [📘 guide](https://github.com/VueTorrent/VueTorrent/blob/HEAD/.github/CONTRIBUTING.md) |
 | [使用客户端发送消息时没有选择压缩条件，但实际消息好像还是进行了Snappy 压缩](https://github.com/Bronya0/Kafka-King/issues/117) 💬 1 | [Bronya0/Kafka-King](https://github.com/Bronya0/Kafka-King) | 1.3k | 🟢 beginner | 2026-10-21 |  |

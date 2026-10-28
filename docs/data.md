@@ -27,6 +27,14 @@ It is refreshed twice a day. The same data, without the website extras, is commi
       "buckets": ["devtools"],                   // Open Source Radar topic slugs (see scripts/config.toml)
       "contributing": "CONTRIBUTING.md",          // detected contributing guide path, or null
       "open_count": 4,                           // listed issues in this project
+      "external_prs": {
+        "capped": false,                        // true if the search returned its 100-PR limit
+        "created_in_window": 12,                  // non-team human PRs created in the configured window
+        "merged_in_window": 3,                   // those PRs currently merged
+        "open_in_window": 4,                     // those PRs still open
+        "merge_rate": 0.25,                      // merged_in_window / created_in_window
+        "median_time_to_merge_hours": 36.5
+      },
       "policy": {
         "ai": "none",                            // none | policy | disclose | restricted (detected, may be wrong)
         "ai_file": null,                         // file the AI rule was found in
@@ -68,6 +76,17 @@ It is `null` if no guide was detected; older datasets can omit the field.
 The site links to the detected path on GitHub and offers a **Has a contributing
 guide** filter. The policy-file cache may be stale, and detecting a guide does
 not guarantee that its advice is current or helpful.
+
+`repositories[repo].external_prs` is a recent non-maintainer contribution signal. The pipeline
+runs one GitHub PR search per displayed repository for PRs created in the configured window,
+ordered by recent updates. It includes GitHub users who are not an `OWNER`, `MEMBER`, or
+`COLLABORATOR`, and excludes bots. `merged_in_window` counts PRs created in the window that have
+since merged; it does not include PRs created earlier and merged during this window. `merge_rate` is the share of those PRs
+that are currently merged. `median_time_to_merge_hours` is the median time between
+opening and merging them. Results are bounded to the first 100 search results per repository, so
+counts and rates are recent-sample signals rather than full-window totals when `capped` is true.
+The flag is set when the search returns 100 PRs, before filtering out team members and bots.
+`external_prs` is `null` when the search for that repository failed in the last run.
 
 ## Example: five newest beginner issues in Go
 

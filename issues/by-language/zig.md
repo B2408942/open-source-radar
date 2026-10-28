@@ -4,7 +4,7 @@
 
 [RSS feed](https://tanbirramim.github.io/open-source-radar/feeds/zig.xml)
 
-> Updated automatically on **2026-10-26 22:29 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
+> Updated automatically on **2026-10-27 22:06 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
 >
 > Prefer filters and search? Use the [website](https://tanbirramim.github.io/open-source-radar/). New here? Start with the [guide](../../guide/README.md).
 
@@ -12,7 +12,7 @@
 
 | Issue | Repository | Stars | Level | Updated | Notes |
 | --- | --- | ---: | --- | --- | --- |
-| [H3: is there a supported way to chain windows with REF2VA references? (chained windows + ref_images are mutual](https://github.com/ddalcu/mlx-serve/issues/316) 💬 5 | [ddalcu/mlx-serve](https://github.com/ddalcu/mlx-serve) | 2.1k | 🟡 help wanted | 2026-10-26 | [📘 guide](https://github.com/ddalcu/mlx-serve/blob/HEAD/CONTRIBUTING.md) |
+| [H3: is there a supported way to chain windows with REF2VA references? (chained windows + ref_images are mutua…](https://github.com/ddalcu/mlx-serve/issues/316) 💬 5 | [ddalcu/mlx-serve](https://github.com/ddalcu/mlx-serve) | 2.1k | 🟡 help wanted | 2026-10-26 | [📘 guide](https://github.com/ddalcu/mlx-serve/blob/HEAD/CONTRIBUTING.md) |
 | [Logarithm builtins for F32, F64, Dec](https://github.com/roc-lang/roc/issues/5107) 💬 3 | [roc-lang/roc](https://github.com/roc-lang/roc) | 6.2k | 🟢 beginner | 2026-10-24 |  |
 | [Session persistence on machine restart](https://github.com/neurosnap/zmx/issues/76) 💬 11 | [neurosnap/zmx](https://github.com/neurosnap/zmx) | 2.2k | 🟡 help wanted | 2026-10-12 |  |
 | [Support all of WASI preview1 functions](https://github.com/mewz-project/mewz/issues/1) | [mewz-project/mewz](https://github.com/mewz-project/mewz) | 690 | 🟢 beginner | 2026-09-05 |  |

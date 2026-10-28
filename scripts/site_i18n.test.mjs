@@ -6,11 +6,11 @@ import vm from "node:vm";
 const i18nSource = readFileSync(new URL("../site/assets/i18n.js", import.meta.url), "utf8");
 const indexSource = readFileSync(new URL("../site/index.html", import.meta.url), "utf8");
 
-function loadI18n(requestedLocale) {
+function loadI18n(requestedLocale, navigator = { language: "en" }) {
   const select = { value: "", addEventListener() { } };
   const context = {
     window: {},
-    navigator: { language: "en" },
+    navigator,
     localStorage: { getItem: () => requestedLocale, setItem() { } },
     location: { reload() { } },
     document: {
@@ -31,7 +31,8 @@ function staticKeys() {
 function localeSelectValues() {
   const select = indexSource.match(/<select id="locale-select"[\s\S]*?<\/select>/)?.[0];
   assert.ok(select, "locale selector is present");
-  return [...select.matchAll(/<option\s+value="([^"]+)"/g)].map((match) => match[1]);
+  return [...select.matchAll(/<option\s+value="([^"]+)"\s+lang="([^"]+)"/g)]
+    .map((match) => ({ value: match[1], lang: match[2] }));
 }
 
 const dynamicKeys = [
@@ -82,5 +83,27 @@ test("the locale menu matches the available message locales", () => {
   const { messages } = loadI18n("en");
   // Compare as sorted lists: the menu order is a display choice (e.g. English first),
   // the test only cares that no locale is missing from either side.
-  assert.deepEqual(localeSelectValues().sort(), Object.keys(messages).sort());
+  const options = localeSelectValues();
+  assert.deepEqual(options.map((option) => option.value).sort(), Object.keys(messages).sort());
+  // A lang can be more specific than the locale code, like zh-Hans for the Simplified Chinese option.
+  for (const option of options) {
+    assert.ok(
+      option.lang === option.value || option.lang.startsWith(`${option.value}-`),
+      `${option.value} option has matching lang (got ${option.lang})`,
+    );
+  }
+});
+
+test("the first supported browser language wins", () => {
+  assert.equal(loadI18n(null, { language: "pa-IN", languages: ["pa-IN", "hi-IN", "es"] }).locale, "hi");
+  assert.equal(loadI18n(null, { language: "pt-BR", languages: ["pt-BR"] }).locale, "pt");
+});
+
+test("browser languages fall back to navigator.language, then English", () => {
+  assert.equal(loadI18n(null, { language: "fr-CA" }).locale, "fr");
+  assert.equal(loadI18n(null, { language: "pa", languages: ["pa", "ta"] }).locale, "en");
+});
+
+test("a saved choice beats the browser languages", () => {
+  assert.equal(loadI18n("de", { language: "es", languages: ["es"] }).locale, "de");
 });

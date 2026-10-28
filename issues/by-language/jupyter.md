@@ -1,10 +1,10 @@
 # Jupyter Notebook issues
 
-**21** open issues (13 labeled for beginners) across **9** active Jupyter Notebook projects.
+**22** open issues (14 labeled for beginners) across **10** active Jupyter Notebook projects.
 
 [RSS feed](https://tanbirramim.github.io/open-source-radar/feeds/jupyter.xml)
 
-> Updated automatically on **2026-10-26 22:29 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
+> Updated automatically on **2026-10-27 22:06 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
 >
 > Prefer filters and search? Use the [website](https://tanbirramim.github.io/open-source-radar/). New here? Start with the [guide](../../guide/README.md).
 
@@ -12,10 +12,11 @@
 
 | Issue | Repository | Stars | Level | Updated | Notes |
 | --- | --- | ---: | --- | --- | --- |
+| [Switch to PyDSSP](https://github.com/a-r-j/graphein/issues/243) 💬 2 | [a-r-j/graphein](https://github.com/a-r-j/graphein) | 1.2k | 🟢 beginner | 2026-10-27 |  |
 | [\[documentation\] show how to get hamilton running on snowpark](https://github.com/apache/hamilton/issues/56) 💬 4 | [apache/hamilton](https://github.com/apache/hamilton) | 2.6k | 🟢 beginner | 2026-10-02 | ✍️ CLA · [📘 guide](https://github.com/apache/hamilton/blob/HEAD/CONTRIBUTING.md) |
 | [Unit test stub autogenerator](https://github.com/apache/hamilton/issues/74) 💬 6 | [apache/hamilton](https://github.com/apache/hamilton) | 2.6k | 🟢 beginner | 2026-09-23 | ✍️ CLA · [📘 guide](https://github.com/apache/hamilton/blob/HEAD/CONTRIBUTING.md) |
 | [Output cells no longer collapse completely](https://github.com/jupyter/notebook/issues/7020) 💬 16 | [jupyter/notebook](https://github.com/jupyter/notebook) | 13.5k | 🟡 help wanted | 2026-09-01 | [📘 guide](https://github.com/jupyter/notebook/blob/HEAD/CONTRIBUTING.md) |
-| [\[Feature Request\]: Integrate Automated Data Validation Pipeline using 'Great Expectations' for Dataset Integri](https://github.com/Niketkumardheeryan/ML-CaPsule/issues/1504) 💬 26 | [Niketkumardheeryan/ML-CaPsule](https://github.com/Niketkumardheeryan/ML-CaPsule) | 684 | 🟡 help wanted | 2026-08-19 | [📘 guide](https://github.com/Niketkumardheeryan/ML-CaPsule/blob/HEAD/CONTRIBUTING.md) |
+| [\[Feature Request\]: Integrate Automated Data Validation Pipeline using 'Great Expectations' for Dataset Integr…](https://github.com/Niketkumardheeryan/ML-CaPsule/issues/1504) 💬 26 | [Niketkumardheeryan/ML-CaPsule](https://github.com/Niketkumardheeryan/ML-CaPsule) | 684 | 🟡 help wanted | 2026-08-19 | [📘 guide](https://github.com/Niketkumardheeryan/ML-CaPsule/blob/HEAD/CONTRIBUTING.md) |
 | [More transparent error messages when calling effect functions on un-fitted estimators](https://github.com/py-why/EconML/issues/686) 💬 1 | [py-why/EconML](https://github.com/py-why/EconML) | 4.8k | 🟡 help wanted | 2026-08-18 |  |
 | [Hacktoberfest Umbrella Issue](https://github.com/apache/hamilton/issues/1186) 💬 25 | [apache/hamilton](https://github.com/apache/hamilton) | 2.6k | 🟢 beginner | 2026-08-18 | ✍️ CLA · [📘 guide](https://github.com/apache/hamilton/blob/HEAD/CONTRIBUTING.md) |
 | [Build an AI-Based Interview Preparation Website](https://github.com/Niketkumardheeryan/ML-CaPsule/issues/1436) 💬 18 | [Niketkumardheeryan/ML-CaPsule](https://github.com/Niketkumardheeryan/ML-CaPsule) | 684 | 🟡 help wanted | 2026-08-17 | [📘 guide](https://github.com/Niketkumardheeryan/ML-CaPsule/blob/HEAD/CONTRIBUTING.md) |

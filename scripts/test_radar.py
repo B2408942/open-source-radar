@@ -648,6 +648,46 @@ class ProjectsPageTests(unittest.TestCase):
         # None and "" both count as no language and share one "Other" group, never a second one.
         self.assertEqual(page.count("## Other"), 1)
 
+    def test_projects_page_truncates_before_escaping_markdown(self):
+        for suffix, expected in [
+            ("| extra", r"\|"),
+            ("< extra", "&lt;"),
+        ]:
+            with self.subTest(suffix=suffix):
+                repositories = {
+                    "owner/repo": {
+                        "url": "https://github.com/owner/repo",
+                        "description": "a" * 119 + suffix,
+                        "stars": 500,
+                        "open_count": 1,
+                        "language": "Python",
+                        "policy": {},
+                    }
+                }
+
+                config = {"languages": {"Python": "python"}}
+
+                with tempfile.TemporaryDirectory() as tmp:
+                    with patch.object(radar, "ROOT", Path(tmp)):
+                        radar.render_projects(
+                            repositories,
+                            [],
+                            config,
+                            "2026-10-27T00:00:00+00:00",
+                        )
+
+                    page = (Path(tmp) / "projects" / "README.md").read_text(encoding="utf-8")
+
+                self.assertIn("a" * 119 + "… |", page)
+                self.assertNotIn(expected, page)
+
+
+class ShortenTests(unittest.TestCase):
+    def test_shorten_keeps_short_text_and_marks_cuts(self):
+        self.assertEqual(radar.shorten("  a\n  short   title ", 20), "a short title")
+        self.assertEqual(radar.shorten("x" * 20, 20), "x" * 20)
+        self.assertEqual(radar.shorten("word " * 10, 12), "word word w…")
+
 
 class SafetyTests(unittest.TestCase):
     config: ClassVar[dict] = {"exclude": {"repositories": ["Some/Repo", "whole-org/*"]}}
@@ -676,17 +716,157 @@ class SafetyTests(unittest.TestCase):
 
 class QueryTests(unittest.TestCase):
     def test_query_requests_association_without_fetching_more_comments(self):
-        for include_policy in (False, True):
-            with self.subTest(include_policy=include_policy):
-                query = radar.build_repo_query(["owner/repo"], ["good first issue"], 5, include_policy=include_policy)
-                self.assertIn("comments(last: 1) { totalCount nodes { createdAt body authorAssociation } }", query)
+        query = radar.build_repo_query(["owner/repo"], ["good first issue"], 5)
+        self.assertIn("comments(last: 1) { totalCount nodes { createdAt body authorAssociation } }", query)
 
     def test_query_quotes_names_and_labels(self):
-        query = radar.build_repo_query(['own"er/na"me'], ['good "first"'], 5, include_policy=True)
+        query = radar.build_repo_query(['own"er/na"me'], ['good "first"'], 5)
         self.assertIn('owner: "own\\"er"', query)
         self.assertIn('"good \\"first\\""', query)
+        self.assertNotIn("p0:", query)
+
+    def test_policy_query_requests_all_configured_files(self):
+        query = radar.build_policy_query(["owner/repo"])
         self.assertIn('expression: "HEAD:AGENTS.md"', query)
-        self.assertNotIn("p0:", radar.build_repo_query(["a/b"], ["x"], 5, include_policy=False))
+        self.assertEqual(query.count("object(expression:"), len(radar.POLICY_FILES))
+
+    def test_external_merge_query_has_one_shallow_search_per_repository(self):
+        query = radar.build_external_merge_query(["owner/one", "other/two"], dt.date(2026, 7, 15))
+
+        self.assertEqual(query.count(": search(type: ISSUE, first: 100"), 2)
+        self.assertIn("repo:owner/one is:pr created:>=2026-07-15 sort:updated-desc", query)
+        self.assertIn("repo:other/two is:pr created:>=2026-07-15 sort:updated-desc", query)
+        self.assertIn("createdAt mergedAt state authorAssociation author { __typename }", query)
+
+
+class ExternalMergeStatsTests(unittest.TestCase):
+    since = dt.datetime(2026, 7, 15, tzinfo=dt.UTC)
+
+    def test_counts_recent_non_team_human_merges(self):
+        search = {
+            "nodes": [
+                {
+                    "createdAt": "2026-07-30T00:00:00Z",
+                    "mergedAt": "2026-08-01T00:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "NONE",
+                    "author": {"__typename": "User"},
+                },
+                {
+                    "createdAt": "2026-10-10T00:00:00Z",
+                    "mergedAt": "2026-10-12T00:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "CONTRIBUTOR",
+                    "author": {"__typename": "User"},
+                },
+                {
+                    "createdAt": "2026-10-12T12:00:00Z",
+                    "mergedAt": "2026-10-13T00:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "FIRST_TIMER",
+                    "author": {"__typename": "User"},
+                },
+                {
+                    "createdAt": "2026-10-07T00:00:00Z",
+                    "mergedAt": "2026-10-14T00:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "FIRST_TIME_CONTRIBUTOR",
+                    "author": {"__typename": "User"},
+                },
+                {
+                    "createdAt": "2026-10-14T00:00:00Z",
+                    "mergedAt": "2026-10-15T00:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "MEMBER",
+                    "author": {"__typename": "User"},
+                },
+                {
+                    "createdAt": "2026-10-14T12:00:00Z",
+                    "mergedAt": "2026-10-15T12:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "COLLABORATOR",
+                    "author": {"__typename": "User"},
+                },
+                {
+                    "createdAt": "2026-10-14T18:00:00Z",
+                    "mergedAt": "2026-10-15T18:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "OWNER",
+                    "author": {"__typename": "User"},
+                },
+                {
+                    "createdAt": "2026-10-14T00:00:00Z",
+                    "mergedAt": "2026-10-16T00:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "NONE",
+                    "author": {"__typename": "Bot"},
+                },
+                {
+                    "createdAt": "2026-07-13T00:00:00Z",
+                    "mergedAt": "2026-07-14T00:00:00Z",
+                    "state": "MERGED",
+                    "authorAssociation": "NONE",
+                    "author": {"__typename": "User"},
+                },
+                {
+                    "createdAt": "2026-10-15T00:00:00Z",
+                    "mergedAt": None,
+                    "state": "OPEN",
+                    "authorAssociation": "NONE",
+                    "author": {"__typename": "User"},
+                },
+            ]
+        }
+
+        self.assertEqual(
+            radar.external_merge_stats(search, self.since),
+            {
+                "capped": False,
+                "created_in_window": 5,
+                "merged_in_window": 4,
+                "open_in_window": 1,
+                "merge_rate": 0.8,
+                "median_time_to_merge_hours": 48.0,
+            },
+        )
+
+    def test_failed_search_is_unknown_not_zero(self):
+        class FakeGitHub:
+            def graphql(self, query):
+                # The batch fails, then only owner/ok works on its own.
+                if "owner/ok" in query and "owner/broken" not in query:
+                    return {"data": {"external0": {"nodes": []}}}
+                raise RuntimeError("search failed")
+
+        stats, *_ = radar.fetch_external_merge_stats(FakeGitHub(), ["owner/ok", "owner/broken"], self.since)
+        self.assertEqual(stats["owner/ok"]["created_in_window"], 0)
+        self.assertIsNone(stats["owner/broken"])
+
+    def test_empty_search_has_zero_stats(self):
+        self.assertEqual(
+            radar.external_merge_stats(None, self.since),
+            {
+                "capped": False,
+                "created_in_window": 0,
+                "merged_in_window": 0,
+                "open_in_window": 0,
+                "merge_rate": None,
+                "median_time_to_merge_hours": None,
+            },
+        )
+
+    def test_capped_uses_raw_search_count_before_author_filtering(self):
+        team_pr = {
+            "createdAt": "2026-10-15T00:00:00Z",
+            "mergedAt": None,
+            "state": "OPEN",
+            "authorAssociation": "MEMBER",
+            "author": {"__typename": "User"},
+        }
+        self.assertFalse(radar.external_merge_stats({"nodes": [team_pr] * 99}, self.since)["capped"])
+        stats = radar.external_merge_stats({"nodes": [team_pr] * 100}, self.since)
+        self.assertTrue(stats["capped"])
+        self.assertEqual(stats["created_in_window"], 0)
 
 
 class DiscoveryTests(unittest.TestCase):
@@ -892,9 +1072,10 @@ class ContributingFetchTests(unittest.TestCase):
                 class FakeGitHub:
                     def __init__(self, response_repo):
                         self.response_repo = response_repo
+                        self.queries = []
 
                     def graphql(self, query):
-                        self.query = query
+                        self.queries.append(query)
                         return {"data": {"r0": self.response_repo, "rateLimit": {"remaining": 4000}}}
 
                 github = FakeGitHub(graph_repo)
@@ -934,7 +1115,7 @@ class ContributingFetchTests(unittest.TestCase):
                 site_data = json.loads(site_data_path.read_text(encoding="utf-8"))
                 self.assertEqual(site_data["repositories"]["owner/repo"]["contributing"], expected)
                 self.assertNotIn("contributing", site_data["issues"][0])
-                self.assertEqual("HEAD:CONTRIBUTING.md" in github.query, refresh)
+                self.assertEqual(any("HEAD:CONTRIBUTING.md" in query for query in github.queries), refresh)
 
 
 class MaintainerReplyFetchTests(unittest.TestCase):
@@ -1487,7 +1668,7 @@ class HelperTests(unittest.TestCase):
 
     def test_build_repo_query_escapes_names_and_labels(self):
         # gql_string is only useful if the query builder actually uses it everywhere.
-        query = radar.build_repo_query(['own/re"po'], ['say "hi"', "line\nbreak"], 5, False)
+        query = radar.build_repo_query(['own/re"po'], ['say "hi"', "line\nbreak"], 5)
         self.assertIn('repository(owner: "own", name: "re\\"po")', query)
         self.assertIn('labels: ["say \\"hi\\"","line\\nbreak"]', query)
         self.assertNotIn("line\nbreak", query)
@@ -1590,6 +1771,22 @@ class LanguageQuickstartsInSyncTests(unittest.TestCase):
                     last,
                     f"{name} should end with the 'Back to [all languages](README.md)' footer",
                 )
+
+
+class GuideGlossaryTranslationTests(unittest.TestCase):
+    def test_translated_glossaries_define_the_same_terms(self):
+        # Terms stay in English in every translation, so the bold first cells should match exactly.
+        guide_dir = Path(__file__).resolve().parent.parent / "guide"
+
+        def terms(path):
+            # Escaped markdown like in #344 (fixed in #345) matches no rows here, so this catches that too.
+            return re.findall(r"^\| \*\*(.+?)\*\* \|", path.read_text(encoding="utf-8"), re.MULTILINE)
+
+        english = terms(guide_dir / "glossary.md")
+        self.assertTrue(english)
+        for glossary in sorted(guide_dir.glob("*/glossary.md")):
+            with self.subTest(glossary=glossary.parent.name):
+                self.assertEqual(terms(glossary), english)
 
 
 class GuideTranslationLinkTests(unittest.TestCase):

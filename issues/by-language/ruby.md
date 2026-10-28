@@ -1,10 +1,10 @@
 # Ruby issues
 
-**66** open issues (48 labeled for beginners) across **26** active Ruby projects.
+**68** open issues (50 labeled for beginners) across **26** active Ruby projects.
 
 [RSS feed](https://tanbirramim.github.io/open-source-radar/feeds/ruby.xml)
 
-> Updated automatically on **2026-10-26 22:29 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
+> Updated automatically on **2026-10-27 22:06 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
 >
 > Prefer filters and search? Use the [website](https://tanbirramim.github.io/open-source-radar/). New here? Start with the [guide](../../guide/README.md).
 
@@ -12,7 +12,9 @@
 
 | Issue | Repository | Stars | Level | Updated | Notes |
 | --- | --- | ---: | --- | --- | --- |
-| [Support setting cron monitor tolerances](https://github.com/getsentry/sentry-ruby/issues/2668) 💬 1 | [getsentry/sentry-ruby](https://github.com/getsentry/sentry-ruby) | 990 | 🟢 beginner | 2026-10-25 | [📘 guide](https://github.com/getsentry/sentry-ruby/blob/HEAD/CONTRIBUTING.md) |
+| [Add Missing Table Translation Test Case](https://github.com/ManageIQ/manageiq/issues/22736) 💬 2 | [ManageIQ/manageiq](https://github.com/ManageIQ/manageiq) | 1.4k | 🟢 beginner | 2026-10-26 | [📘 guide](https://github.com/ManageIQ/manageiq/blob/HEAD/CONTRIBUTING.md) |
+| [\[RFE\] Add support for relative paths to evm:export:service_dialogs](https://github.com/ManageIQ/manageiq/issues/20488) 💬 5 | [ManageIQ/manageiq](https://github.com/ManageIQ/manageiq) | 1.4k | 🟢 beginner | 2026-10-26 | [📘 guide](https://github.com/ManageIQ/manageiq/blob/HEAD/CONTRIBUTING.md) |
+| [Support setting cron monitor tolerances](https://github.com/getsentry/sentry-ruby/issues/2668) 💬 1 | [getsentry/sentry-ruby](https://github.com/getsentry/sentry-ruby) | 989 | 🟢 beginner | 2026-10-25 | [📘 guide](https://github.com/getsentry/sentry-ruby/blob/HEAD/CONTRIBUTING.md) |
 | [Adding Action Args to agent actions](https://github.com/activeagents/activeagent/issues/295) 💬 1 | [activeagents/activeagent](https://github.com/activeagents/activeagent) | 985 | 🟡 help wanted | 2026-10-24 |  |
 | [Current page's table of contents](https://github.com/freeCodeCamp/devdocs/issues/6) 💬 21 | [freeCodeCamp/devdocs](https://github.com/freeCodeCamp/devdocs) | 39.6k | 🟡 help wanted | 2026-10-20 | [📘 guide](https://github.com/freeCodeCamp/devdocs/blob/HEAD/.github/CONTRIBUTING.md) |
 | [Mod deleting a comment removes the visual indication of upvoted](https://github.com/lobsters/lobsters/issues/2201) | [lobsters/lobsters](https://github.com/lobsters/lobsters) | 4.9k | 🟢 beginner | 2026-10-19 | [📘 guide](https://github.com/lobsters/lobsters/blob/HEAD/CONTRIBUTING.md) |
@@ -39,7 +41,7 @@
 | [Better icon library](https://github.com/AllYourBot/hostedgpt/issues/287) 💬 4 | [AllYourBot/hostedgpt](https://github.com/AllYourBot/hostedgpt) | 513 | 🟢 beginner | 2026-08-29 | [📘 guide](https://github.com/AllYourBot/hostedgpt/blob/HEAD/CONTRIBUTING.md) |
 | [\[Feature Request\] Dark Mode](https://github.com/endoflife-date/endoflife.date/issues/1187) 💬 10 | [endoflife-date/endoflife.date](https://github.com/endoflife-date/endoflife.date) | 3.4k | 🟢 beginner | 2026-08-28 | [📘 guide](https://github.com/endoflife-date/endoflife.date/blob/HEAD/CONTRIBUTING.md) |
 | [\[Request\] Generate policy file when using scaffolding](https://github.com/varvet/pundit/issues/735) 💬 5 | [varvet/pundit](https://github.com/varvet/pundit) | 8.5k | 🟢 beginner | 2026-08-15 | [📘 guide](https://github.com/varvet/pundit/blob/HEAD/CONTRIBUTING.md) |
-| [Make a performance comparison between replacing Turbolinks (plus rails-ujs) with Turbo and dropping it entirel](https://github.com/consuldemocracy/consuldemocracy/issues/5485) | [consuldemocracy/consuldemocracy](https://github.com/consuldemocracy/consuldemocracy) | 1.6k | 🟡 help wanted | 2026-08-14 | [📘 guide](https://github.com/consuldemocracy/consuldemocracy/blob/HEAD/CONTRIBUTING.md) |
+| [Make a performance comparison between replacing Turbolinks (plus rails-ujs) with Turbo and dropping it entire…](https://github.com/consuldemocracy/consuldemocracy/issues/5485) | [consuldemocracy/consuldemocracy](https://github.com/consuldemocracy/consuldemocracy) | 1.6k | 🟡 help wanted | 2026-08-14 | [📘 guide](https://github.com/consuldemocracy/consuldemocracy/blob/HEAD/CONTRIBUTING.md) |
 | [Add Warsh Qirat Data to QUL](https://github.com/TarteelAI/quranic-universal-library/issues/131) 💬 3 | [TarteelAI/quranic-universal-library](https://github.com/TarteelAI/quranic-universal-library) | 1.1k | 🟡 help wanted | 2026-08-08 |  |
 | [Use largest thumbnail image from GCODE files](https://github.com/manyfold3d/manyfold/issues/6407) 💬 2 | [manyfold3d/manyfold](https://github.com/manyfold3d/manyfold) | 2.2k | 🟢 beginner | 2026-07-31 | 📄 AI policy · ✍️ CLA · [📘 guide](https://github.com/manyfold3d/manyfold/blob/HEAD/.github/CONTRIBUTING.md) |
 | [Make immediate printing optional, with a choice dialog](https://github.com/manyfold3d/manyfold/issues/6447) 💬 6 | [manyfold3d/manyfold](https://github.com/manyfold3d/manyfold) | 2.2k | 🟢 beginner | 2026-07-31 | 📄 AI policy · ✍️ CLA · [📘 guide](https://github.com/manyfold3d/manyfold/blob/HEAD/.github/CONTRIBUTING.md) |
@@ -74,7 +76,7 @@
 | [Redesign VM Reconfigure Dialogs](https://github.com/ManageIQ/manageiq/issues/23832) | [ManageIQ/manageiq](https://github.com/ManageIQ/manageiq) | 1.4k | 🟡 help wanted | 2026-06-03 | [📘 guide](https://github.com/ManageIQ/manageiq/blob/HEAD/CONTRIBUTING.md) |
 | [Clean up github-based projects in catalog](https://github.com/rubytoolbox/rubytoolbox/issues/75) 💬 2 | [rubytoolbox/rubytoolbox](https://github.com/rubytoolbox/rubytoolbox) | 549 | 🟡 help wanted | 2026-05-26 |  |
 | [Share Button](https://github.com/manyfold3d/manyfold/issues/3856) 💬 4 | [manyfold3d/manyfold](https://github.com/manyfold3d/manyfold) | 2.2k | 🟢 beginner | 2026-05-21 | 📄 AI policy · ✍️ CLA · [📘 guide](https://github.com/manyfold3d/manyfold/blob/HEAD/.github/CONTRIBUTING.md) |
-| [Ractor incompatibility: contracts, schemas, types, and results cannot be used from non-main Ractors on Ruby 4.](https://github.com/dry-rb/dry-validation/issues/749) 💬 1 | [dry-rb/dry-validation](https://github.com/dry-rb/dry-validation) | 1.4k | 🟡 help wanted | 2026-05-12 | [📘 guide](https://github.com/dry-rb/dry-validation/blob/HEAD/CONTRIBUTING.md) |
+| [Ractor incompatibility: contracts, schemas, types, and results cannot be used from non-main Ractors on Ruby 4…](https://github.com/dry-rb/dry-validation/issues/749) 💬 1 | [dry-rb/dry-validation](https://github.com/dry-rb/dry-validation) | 1.4k | 🟡 help wanted | 2026-05-12 | [📘 guide](https://github.com/dry-rb/dry-validation/blob/HEAD/CONTRIBUTING.md) |
 | [multiple favicon versions, some ugly](https://github.com/lobsters/lobsters/issues/1921) 💬 3 | [lobsters/lobsters](https://github.com/lobsters/lobsters) | 4.9k | 🟢 beginner | 2026-05-07 | [📘 guide](https://github.com/lobsters/lobsters/blob/HEAD/CONTRIBUTING.md) |
 | [Add SNOBOL](https://github.com/github-linguist/linguist/issues/7950) | [github-linguist/linguist](https://github.com/github-linguist/linguist) | 13.8k | 🟢 beginner | 2026-05-06 | [📘 guide](https://github.com/github-linguist/linguist/blob/HEAD/CONTRIBUTING.md) |
 | [Commenting Double-Posted](https://github.com/lobsters/lobsters/issues/1987) 💬 1 | [lobsters/lobsters](https://github.com/lobsters/lobsters) | 4.9k | 🟢 beginner | 2026-05-04 | [📘 guide](https://github.com/lobsters/lobsters/blob/HEAD/CONTRIBUTING.md) |

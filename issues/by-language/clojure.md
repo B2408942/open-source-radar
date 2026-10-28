@@ -4,7 +4,7 @@
 
 [RSS feed](https://tanbirramim.github.io/open-source-radar/feeds/clojure.xml)
 
-> Updated automatically on **2026-10-26 22:29 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
+> Updated automatically on **2026-10-27 22:06 UTC**. Every issue listed here was open, unassigned and without an open or merged pull request when it was collected. Always read the issue and the project's contributing guide before you start.
 >
 > Prefer filters and search? Use the [website](https://tanbirramim.github.io/open-source-radar/). New here? Start with the [guide](../../guide/README.md).
 
@@ -13,10 +13,10 @@
 | Issue | Repository | Stars | Level | Updated | Notes |
 | --- | --- | ---: | --- | --- | --- |
 | [Show when a subscription or alert was skipped because it was empty](https://github.com/metabase/metabase/issues/80736) 💬 4 | [metabase/metabase](https://github.com/metabase/metabase) | 49.9k | 🟢 beginner | 2026-10-23 | ✍️ CLA · [📘 guide](https://github.com/metabase/metabase/blob/HEAD/docs/CONTRIBUTING.md) |
-| [An authentication rule's remoteAddress should match a CIDR block, as the docs say](https://github.com/xtdb/xtdb/issues/6282) | [xtdb/xtdb](https://github.com/xtdb/xtdb) | 3.1k | 🟢 beginner | 2026-10-23 |  |
-| [Zombie chrome-headless processes created on element export](https://github.com/penpot/penpot/issues/10339) 💬 4 | [penpot/penpot](https://github.com/penpot/penpot) | 61.7k | 🟢 beginner | 2026-10-20 | 🤖 disclose AI use · 🔏 DCO · [📘 guide](https://github.com/penpot/penpot/blob/HEAD/CONTRIBUTING.md) |
+| [An authentication rule's remoteAddress should match a CIDR block, as the docs say](https://github.com/xtdb/xtdb/issues/6282) | [xtdb/xtdb](https://github.com/xtdb/xtdb) | 3.1k | 🟢 beginner | 2026-10-23 | ✍️ CLA · 🔏 DCO · [📘 guide](https://github.com/xtdb/xtdb/blob/HEAD/CONTRIBUTING.md) |
+| [Zombie chrome-headless processes created on element export](https://github.com/penpot/penpot/issues/10339) 💬 4 | [penpot/penpot](https://github.com/penpot/penpot) | 61.8k | 🟢 beginner | 2026-10-20 | 🤖 disclose AI use · 🔏 DCO · [📘 guide](https://github.com/penpot/penpot/blob/HEAD/CONTRIBUTING.md) |
 | [Improve the Open Decklists' deckview.](https://github.com/mtgred/netrunner/issues/7890) 💬 1 | [mtgred/netrunner](https://github.com/mtgred/netrunner) | 985 | 🟢 beginner | 2026-10-19 | [📘 guide](https://github.com/mtgred/netrunner/blob/HEAD/CONTRIBUTING.md) |
-| [Keep the search when changing library in the Swap component menu](https://github.com/penpot/penpot/issues/12335) 💬 2 | [penpot/penpot](https://github.com/penpot/penpot) | 61.7k | 🟢 beginner | 2026-10-18 | 🤖 disclose AI use · 🔏 DCO · [📘 guide](https://github.com/penpot/penpot/blob/HEAD/CONTRIBUTING.md) |
+| [Keep the search when changing library in the Swap component menu](https://github.com/penpot/penpot/issues/12335) 💬 2 | [penpot/penpot](https://github.com/penpot/penpot) | 61.8k | 🟢 beginner | 2026-10-18 | 🤖 disclose AI use · 🔏 DCO · [📘 guide](https://github.com/penpot/penpot/blob/HEAD/CONTRIBUTING.md) |
 | [Gauge loses all its ranges when one Min or Max is empty](https://github.com/metabase/metabase/issues/83439) 💬 1 | [metabase/metabase](https://github.com/metabase/metabase) | 49.9k | 🟢 beginner | 2026-10-18 | ✍️ CLA · [📘 guide](https://github.com/metabase/metabase/blob/HEAD/docs/CONTRIBUTING.md) |
 | [Bar chart of "Most active people on this dashboard" is rendered incorrectly](https://github.com/metabase/metabase/issues/83007) 💬 1 | [metabase/metabase](https://github.com/metabase/metabase) | 49.9k | 🟢 beginner | 2026-10-18 | ✍️ CLA · [📘 guide](https://github.com/metabase/metabase/blob/HEAD/docs/CONTRIBUTING.md) |
 | [Table editing: Description cell editor grows its row and renders behind the rows below](https://github.com/metabase/metabase/issues/84219) 💬 1 | [metabase/metabase](https://github.com/metabase/metabase) | 49.9k | 🟢 beginner | 2026-10-18 | ✍️ CLA · [📘 guide](https://github.com/metabase/metabase/blob/HEAD/docs/CONTRIBUTING.md) |
